@@ -3,6 +3,9 @@
 #include <io.h>
 #include "system.h"
 #include "LCD.h"
+#include "sys/alt_timestamp.h" 
+#include "alt_types.h"
+#include <stdio.h>
 //-------------------------------------------------------------------------
 void LCD_Init()
 {
@@ -36,8 +39,10 @@ void LCD_Line2()
 //-------------------------------------------------------------------------
 void LCD_Test()
 {
+  //alt_u32 time1 = alt_timestamp();
+  //printf("\nTime: %u", time1);
   char Text1[16] = "Altera DE2 Board";
-  char Text2[16] = "Ethernet Testing";
+  char Text2[16] = "Updated: 7:40PM ";
   //  Initial LCD
   LCD_Init();
   //  Show Text to LCD
