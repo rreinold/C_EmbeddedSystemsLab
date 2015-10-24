@@ -1,3 +1,9 @@
+## Sending Ethernet packet via NIOS Softcore Processor Board ##
+
+Pay special attention to hello_led.c, which contains all the logic for handling an ethernet packet.
+
+
+
 /**************************************************************************
  * Copyright © 2004 Altera Corporation, San Jose, California, USA.        *
  * All rights reserved. All use of this software and documentation is     *
