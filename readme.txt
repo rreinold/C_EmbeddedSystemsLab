@@ -1,7 +1,13 @@
-## Sending Ethernet packet via NIOS Softcore Processor Board ##
+##Sending an image over Ethernet using C##
 
-Pay special attention to hello_led.c, which contains all the logic for handling an ethernet packet.
+###b1_photograph_and_transmit###
 
+2) Compress image. Each pixel is an 8 bit boolean with only one relevant bit, which represents a black or white pixel. Each pixel only requires one bit to convey presence of black. Thus, we take eight 8bit pixels, and represent them using one 8bit char. els, and compressing them into one 8 bit char, with each bit representing a pixel. 
+
+Responsibilites:
+1) Take photo by allowing camera to write to flash memory
+2) Compress image (see explanation below)
+3) 
 
 
 /**************************************************************************

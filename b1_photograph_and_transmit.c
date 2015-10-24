@@ -200,9 +200,6 @@ void ethernet_interrupts()
         printf("Decoded Data: %x\n",switchData);
         printf("Babes?: 0x%x \n", (incomingPacket[1035]+1 << 24) + (incomingPacket[1036]+1 << 16) + (incomingPacket[1037]+1 << 8) + incomingPacket[1038]);
 
-
-
-        
         switch (currentState) {
             case IDLE:
                 printf("got a packet while idling... wtf\n");

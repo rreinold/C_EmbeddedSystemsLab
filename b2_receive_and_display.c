@@ -3,7 +3,6 @@
 #include "LCD.h"
 #include "DM9000A.C"
 #include "sys/alt_irq.h"
-//#include "HAL4D13.C"
 #include "my_includes.h"
 
 #define LEDR_BASE_ADDRESS 0x006781070 //from SOPC builder
@@ -192,7 +191,6 @@ void readImage(){
         } 
     }//end for
     
-    //alt_flash_close_dev(fd);
 }
 
 void sendAck() {
@@ -247,7 +245,6 @@ void encode(){
         else if (!inport(FIFO_IN_FULL_PIO_BASE))  {     //Insert Byte
             outport(ODATA_PIO,  0xF3   ); //set 8 bits
             outport(FIFO_IN_WRITE_REQ_PIO , 1); //assert write request
-            //usleep(10);
             outport(FIFO_IN_WRITE_REQ_PIO , 0); //deassert write request
             e++; //increment bytes encoded
         }
@@ -325,7 +322,6 @@ void transmit(){
         TransmitPacket(outgoingPacket, sizeof(outgoingPacket));
         msleep(100);
         packetCount++; //increment packetCount
-        //currentState = WAIT; //wait for next packet
     } else if(packetCount == 30){
         sendAppAck();
         printf("finished image transition; current state: %u\n\n",currentState);
