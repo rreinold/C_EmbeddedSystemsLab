@@ -1,5 +1,5 @@
 # Sending an image over Ethernet using C##
-
+# Robert Reinold
 ## b1_photograph_and_transmit.c
 
 ### Purpose:
