@@ -1,17 +1,33 @@
-##Sending an image over Ethernet using C##
+# Sending an image over Ethernet using C##
 
-###b1_photograph_and_transmit###
+## b1_photograph_and_transmit.c
 
-2) Compress image. Each pixel is an 8 bit boolean with only one relevant bit, which represents a black or white pixel. Each pixel only requires one bit to convey presence of black. Thus, we take eight 8bit pixels, and represent them using one 8bit char. els, and compressing them into one 8 bit char, with each bit representing a pixel. 
+### Purpose:
+This code is designed to be run on a standalone NIOS board, with a peripheral camera attached, and an ethernet cable connected to a second board.
 
-Responsibilites:
+### Responsibilities:
 1) Take photo by allowing camera to write to flash memory
 2) Compress image (see explanation below)
-3) 
+3) Upon hitting the transmit switch, enter Transmit state and send first packet
+4) Upon receiving an ACK, send the next packet until all 30 have been sent
+
+## b2_receive_and_display.c
+
+### Purpose:
+This code is designed to be run on a standalone NIOS board, with a VGA connection to a monitor, and an ethernet cable connected to the first board.
+
+### Responsibilities:
+1) Store 30 incoming packets
+2) Decompress image
+3) Display image via VGA output
+
+## How do we compress image comprised of 8bit pixels?
+Each pixel is an 8 bit boolean with only one relevant bit, which represents a black or white pixel. Each pixel only requires one bit to convey presence of black. Thus, we take the single significant bit from the 8bit pixel, and pack eight of them into one char via bit masking and shifting.
 
 
+ 
 /**************************************************************************
- * Copyright © 2004 Altera Corporation, San Jose, California, USA.        *
+ * Copyright ï¿½ 2004 Altera Corporation, San Jose, California, USA.        *
  * All rights reserved. All use of this software and documentation is     *
  * subject to the License Agreement located at the end of this file below.*
  *************************************************************************/
