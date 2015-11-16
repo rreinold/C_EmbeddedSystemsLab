@@ -3,7 +3,7 @@
 ## b1_photograph_and_transmit.c
 
 ### Purpose:
-This code is designed to be run on a standalone NIOS board, with a peripheral camera attached, and an ethernet cable connected to a second board.
+This code is designed to be run on a standalone NIOS board, with a peripheral camera attached, and an ethernet cable connecting this board to a second board.
 
 ### Responsibilities:
 1) Take photo by allowing camera to write to flash memory
@@ -22,7 +22,7 @@ This code is designed to be run on a standalone NIOS board, with a VGA connectio
 3) Display image via VGA output
 
 ## How do we compress image comprised of 8bit pixels?
-Each pixel is an 8 bit boolean with only one relevant bit, which represents a black or white pixel. Each pixel only requires one bit to convey presence of black. Thus, we take the single significant bit from the 8bit pixel, and pack eight of them into one char via bit masking and shifting.
+Each pixel is an 8 bit value with only one relevant bit, which represents a black or white pixel. Each pixel only requires one bit to convey presence of black. Thus, we take the single significant bit from the 8bit pixel, and pack eight of them into one char via bit masking and shifting.
 
 
  
